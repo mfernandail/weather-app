@@ -7,8 +7,7 @@
 body {
   background-color: #f5f5f5;
   display: grid;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Más moderna */
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
@@ -37,31 +36,39 @@ footer {
 }
 
 .search-main {
+  max-width: 600px;
+  width: 90%;
   min-height: 250px;
-  min-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 100px;
+  margin: 50px auto;
   flex-direction: column;
   text-align: center;
 
-  background: white;
+  background: #fff;
   border-radius: 8px;
-  padding: 30px;
+  padding: 40px;
   border: 1px solid #e2e8f0;
 }
 
-
+.search-container{
+  width: 100%;
+}
 
 .search-input {
-  margin-top: 20px;
-  outline: none;
-  padding: 5px 10px;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px 0 15px 0;
+  padding: 8px 10px; /* Más padding */
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
 .btn {
-  padding: 5px 10px;
+  padding: 8px 10px;
 }
 
 .unit-btn {
