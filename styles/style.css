@@ -68,10 +68,12 @@ footer {
 }
 
 .btn {
+  cursor: pointer;
   padding: 8px 10px;
 }
 
 .unit-btn {
+  cursor: pointer;
   margin-top: 20px;
   padding: 5px 10px;
 }
