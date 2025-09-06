@@ -7,7 +7,7 @@ const $msgError = document.getElementById('errorMessage')
 $searchBtn.addEventListener('click', searchWeather)
 
 async function searchWeather() {
-  const city = $searchInput.value
+  const city = $searchInput.value.trim()
 
   if (!city) {
     $msgError.textContent = 'Ingresa una ciudad'
@@ -19,23 +19,25 @@ async function searchWeather() {
     return
   }
 
-  console.log(city)
-  const data = await searchCityWeatherCall(city)
-
-  console.log(data)
-}
-
-async function searchCityWeatherCall(city) {
   try {
-    const result = await apiCall(city)
-    console.log(result)
-    return result
+    const data = await searchCityWeatherCall(city)
+    console.log(data)
+    $msgError.textContent = ''
   } catch (error) {
-    console.log(error)
+    showError(error.message)
+
+    setTimeout(() => {
+      $msgError.textContent = ''
+    }, 3000)
   }
 }
 
-function error(errorType) {
+async function searchCityWeatherCall(city) {
+  const result = await apiCall(city)
+  return result
+}
+
+function showError(errorType) {
   const errorMessages = {
     CITY_NOT_FOUND: 'City not found.',
     INVALID_API_KEY: 'API configuration error.',
