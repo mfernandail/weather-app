@@ -5,6 +5,7 @@ const $searchInput = document.getElementById('search-input')
 const $msgErrorSection = document.getElementById('error')
 const $msgError = document.getElementById('errorMessage')
 const $msgLoadingSection = document.getElementById('loading')
+const $result = document.getElementById('result')
 
 $searchBtn.addEventListener('click', searchWeather)
 
@@ -26,7 +27,7 @@ async function searchWeather() {
 
   try {
     const data = await searchCityWeatherCall(city)
-    console.log(data)
+    renderResult(data)
   } catch (error) {
     $msgErrorSection.classList.add('showMsg')
 
@@ -60,4 +61,13 @@ function showError(errorType) {
   $msgError.textContent = errorMessages[errorType]
     ? errorMessages[errorType]
     : errorMessages['DEFAULT']
+}
+
+function renderResult(data) {
+  const { main } = data
+  console.log(main)
+  const weatherResult = document.createElement('p')
+  weatherResult.textContent = main.temp
+
+  $result.appendChild(weatherResult)
 }
