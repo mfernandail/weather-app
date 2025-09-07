@@ -49,5 +49,5 @@ function showError(errorType) {
 
   $msgError.textContent = errorMessages[errorType]
     ? errorMessages[errorType]
-    : errorMessages[DEFAULT]
+    : errorMessages['DEFAULT']
 }
