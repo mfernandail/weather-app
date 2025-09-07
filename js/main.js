@@ -2,7 +2,9 @@ import apiCall from './api.js'
 
 const $searchBtn = document.getElementById('search-btn')
 const $searchInput = document.getElementById('search-input')
+const $msgErrorSection = document.getElementById('error')
 const $msgError = document.getElementById('errorMessage')
+const $msgLoadingSection = document.getElementById('loading')
 
 $searchBtn.addEventListener('click', searchWeather)
 
@@ -10,26 +12,32 @@ async function searchWeather() {
   const city = $searchInput.value.trim()
 
   if (!city) {
-    $msgError.textContent = 'Ingresa una ciudad'
+    $msgErrorSection.classList.add('showMsg')
+    $msgError.textContent = 'Type a city'
 
     setTimeout(() => {
-      $msgError.textContent = ''
+      $msgErrorSection.classList.remove('showMsg')
     }, 2000)
     $searchInput.focus()
     return
   }
 
+  $msgLoadingSection.classList.add('showMsg')
+
   try {
     const data = await searchCityWeatherCall(city)
     console.log(data)
-    $msgError.textContent = ''
   } catch (error) {
+    $msgErrorSection.classList.add('showMsg')
+
     showError(error.message)
 
     setTimeout(() => {
-      $msgError.textContent = ''
+      $msgErrorSection.classList.remove('showMsg')
     }, 3000)
   }
+
+  $msgLoadingSection.classList.remove('showMsg')
 }
 
 async function searchCityWeatherCall(city) {
@@ -38,6 +46,8 @@ async function searchCityWeatherCall(city) {
 }
 
 function showError(errorType) {
+  $msgError.classList.add('showMsg')
+
   const errorMessages = {
     CITY_NOT_FOUND: 'City not found.',
     INVALID_API_KEY: 'API configuration error.',
