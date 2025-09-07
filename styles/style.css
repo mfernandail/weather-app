@@ -79,18 +79,22 @@ footer {
 }
 
 .loading {
-  /* display: none; */
+  display: none;
   text-align: center;
   padding: 40px;
   color: #666;
 }
 
 .error {
-  /* display: none; */
+  display: none;
   background: #fed7d7;
   color: #c53030;
   padding: 15px;
   border-radius: 6px;
   margin: 20px 0;
   text-align: center;
+}
+
+.showMsg {
+  display: block;
 }
