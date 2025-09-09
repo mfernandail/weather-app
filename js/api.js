@@ -1,8 +1,5 @@
-import { CONFIG } from './config.js'
-
 async function apiCall(city) {
   try {
-    const { BASE_URL, API_KEY } = CONFIG
     const response = await fetch(`${BASE_URL}${city}&appid=${API_KEY}`)
 
     if (!response.ok) {
