@@ -52,6 +52,19 @@ footer {
   border: 1px solid #e2e8f0;
 }
 
+.result {
+  display: none;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  max-width: 400px;
+  min-width: 300px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .search-container{
   width: 100%;
 }
@@ -97,4 +110,8 @@ footer {
 
 .showMsg {
   display: block;
+}
+
+.mb-5 {
+  margin-bottom: 20px;
 }
