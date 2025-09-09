@@ -53,15 +53,12 @@
         </div>
 
         <div class="units-toggle">
-          <button class="unit-btn active" data-unit="celsius">°C</button>
-          <button class="unit-btn" data-unit="fahrenheit">°F</button>
+          <button class="unit-btn active" id="celsius" disabled>°C</button>
+          <button class="unit-btn" id="fahrenheit" disabled>°F</button>
         </div>
       </section>
 
-      <section class="search-main">
-        <h2>Result</h2>
-        <div id="result"></div>
-      </section>
+      <div id="result" class="result"></div>
 
       <!-- Loading State -->
       <section class="card loading" id="loading">
