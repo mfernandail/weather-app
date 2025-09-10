@@ -3,6 +3,7 @@ export function kelvinToCelsius(kelvin) {
 }
 
 export function kelvinToFahrenheit(kelvin) {
+  console.log(kelvin)
   return (kelvin - 273.15) * 1.8 + 32
 }
 

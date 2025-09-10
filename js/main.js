@@ -68,6 +68,7 @@ async function searchWeather() {
 
 async function searchCityWeatherCall(city) {
   const result = await apiCall(city)
+  console.log(result)
   return result
 }
 
@@ -124,21 +125,15 @@ function renderResult() {
 
 function toFahrenheit() {
   //°F = (K − 273,15) × 1,8 + 32.
-  CURRENT_WEATHER = (KELVIN - CONV_KELVIN) * 1.8 + 32
-  MAX_WEATHER_CONV = (MAX_WEATHER_K - CONV_KELVIN) * 1.8 + 32
-  MIN_WEATHER_CONV = (MIN_WEATHER_K - CONV_KELVIN) * 1.8 + 32
-  // CURRENT_WEATHER = kelvinToFahrenheit(KELVIN)
-  // MAX_WEATHER_CONV = kelvinToFahrenheit(MAX_WEATHER_K)
-  // MIN_WEATHER_CONV = kelvinToFahrenheit(MIN_WEATHER_K)
+  CURRENT_WEATHER = kelvinToFahrenheit(KELVIN)
+  MAX_WEATHER_CONV = kelvinToFahrenheit(MAX_WEATHER_K)
+  MIN_WEATHER_CONV = kelvinToFahrenheit(MIN_WEATHER_K)
   renderResult()
 }
 
 function toCelsius() {
-  CURRENT_WEATHER = KELVIN - CONV_KELVIN
-  MAX_WEATHER_CONV = MAX_WEATHER_K - CONV_KELVIN
-  MIN_WEATHER_CONV = MIN_WEATHER_K - CONV_KELVIN
-  // CURRENT_WEATHER = kelvinToCelsius(KELVIN)
-  // MAX_WEATHER_CONV = kelvinToCelsius(MAX_WEATHER_K)
-  // MIN_WEATHER_CONV = kelvinToCelsius(MIN_WEATHER_K)
+  CURRENT_WEATHER = kelvinToCelsius(KELVIN)
+  MAX_WEATHER_CONV = kelvinToCelsius(MAX_WEATHER_K)
+  MIN_WEATHER_CONV = kelvinToCelsius(MIN_WEATHER_K)
   renderResult()
 }

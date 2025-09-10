@@ -16,8 +16,8 @@ export default async function handler(req, res) {
   try {
     // Llamar a OpenWeatherMap API
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+    )
     
     const data = await response.json();
     
